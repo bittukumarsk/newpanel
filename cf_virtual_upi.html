@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> ShadvalPay Admin Panel </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
+    <!--  JQuery Link -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <!-- Header Section Start -->
+    <header class="header">
+        <div class="open hide"> <i class="fa fa-bars"></i> </div>
+        <div class="close show"> <i class="fa fa-bars"></i> </div>
+        <div class="nav">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo">
+                <img src="./icons/logo.png" alt="Logo">
+            </a>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Daily Collection </a>
+                </li>
+            </ul>
+            <!-- Logout Button -->
+            <div class="logout">
+                <form action="#">
+                    <button type="submit"> <i class="fa fa-power-off"></i> Logout </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section Finish -->
+
+    <!-- Main Content -->
+    <section class="main-container">
+        <div class="sidebar">
+            <div class="sidebar-inner">
+                <div class="profile-info">
+                    <div class="profile-img">
+                        <a href="index.html"> <img src="./images/user.jpg" alt="User Image" title="User Image"> </a>
+                    </div>
+                    <div class="profile-data">
+                        <p class="name"> Welcome, Rupam Kumari </p>
+                        <p> Associate since March 2021 </p>
+                    </div>
+                </div>
+                <form class="sidebar-form" action="" method="get">
+                    <div class="input-group">
+                        <input type="text" name="query" id="query" class="form-control" placeholder="Search Member" autocomplete="off">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+                <ul class="sidebar-menu">
+                    <li onclick="changeState(0)">
+                        <a href="search.html">
+                            <div class="icon"> <i class="fa fa-search"></i> </div>
+                            <div class="title"> Search </div>
+                        </a>
+                    </li>
+                    <li onclick="changeState(1)">
+                        <a href="index.html">
+                            <div class="icon"> <i class="fa fa-tachometer"></i> </div>
+                            <div class="title"> Dashboard </div>
+                        </a>
+                    </li>
+                    <li onclick="changeState(2)">
+                        <a>
+                            <div class="icon"> <i class="fa fa-users"></i> </div>
+                            <div class="title"> Member Management </div>
+                            <div class="arrow"> <i class="fa fa-caret-down"></i> </div>
+                        </a>
+                        <ul class="accordion">
+                            <li>
+                                <a href="members.html"> <i class="fa fa-circle-o"></i> Members </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li onclick="changeState(3)">
+                        <a>
+                            <div class="icon"> <i class="fa fa-th-list"></i> </div>
+                            <div class="title"> Saving / Current A/c </div>
+                            <div class="arrow"> <i class="fa fa-caret-down"></i> </div>
+                        </a>
+                        <ul class="accordion">
+                            <li>
+                                <a href="accounts.html"><i class="fa fa-circle-o"></i> Accounts </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li onclick="changeState(4)">
+                        <a>
+                            <div class="icon"> <i class="fa fa-th-list"></i> </div>
+                            <div class="title"> FD / MIS Acconts </div>
+                            <div class="arrow"> <i class="fa fa-caret-down"></i> </div>
+                        </a>
+                        <ul class="accordion">
+                            <li>
+                                <a href="fd_accounts.html"><i class="fa fa-circle-o"></i> FD Accounts </a>
+                            </li>
+                            <li>
+                                <a href="mis_accounts.html"><i class="fa fa-circle-o"></i> MIS Accounts </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li onclick="changeState(5)">
+                        <a>
+                            <div class="icon"> <i class="fa fa-th-list"></i> </div>
+                            <div class="title"> RD / DD Accounts </div>
+                            <div class="arrow"> <i class="fa fa-caret-down"></i> </div>
+                        </a>
+                        <ul class="accordion">
+                            <li>
+                                <a href="rd_accounts.html"><i class="fa fa-circle-o"></i> RD Accounts </a>
+                            </li>
+                            <li>
+                                <a href="dd_accounts.html"><i class="fa fa-circle-o"></i> DD Accounts </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li onclick="changeState(6)">
+                        <a>
+                            <div class="icon"> <i class="fa fa-print"></i> </div>
+                            <div class="title"> Print Documents </div>
+                            <div class="arrow"> <i class="fa fa-caret-down"></i> </div>
+                        </a>
+                        <ul class="accordion">
+                            <li>
+                                <a href="print-passbook.html"><i class="fa fa-circle-o"></i> Saving Pass Book </a>
+                            </li>
+                            <li>
+                                <a href="fd_mis_print.html"><i class="fa fa-circle-o"></i> FD / MIS Bond </a>
+                            </li>
+                            <li>
+                                <a href="fd_mis_passbook.html"><i class="fa fa-circle-o"></i> FD / MIS Pass Book </a>
+                            </li>
+                            <li>
+                                <a href="rd_dd_bond.html"><i class="fa fa-circle-o"></i> RD / DD Bond </a>
+                            </li>
+                            <li>
+                                <a href="rd_dd_passbook.html"><i class="fa fa-circle-o"></i> RD / DD Pass Book </a>
+                            </li>
+                            <li>
+                                <a href="rd_dd_receipt.html"><i class="fa fa-circle-o"></i> RD / DD Receipt </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active" onclick="changeState(7)">
+                        <a>
+                            <div class="icon"> <i class="fa fa-th-list"></i> </div>
+                            <div class="title"> IMPS / Virtual IFSC </div>
+                            <div class="arrow"> <i class="fa fa-caret-down"></i> </div>
+                        </a>
+                        <ul class="accordion">
+                            <li>
+                                <a href="cf_virtual_upi.html" class="active"><i class="fa fa-circle-o"></i> CF Virtual UPIs </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li onclick="changeState(8)">
+                        <a>
+                            <div class="icon"> <i class="fa fa-th-list"></i> </div>
+                            <div class="title"> Debit Cards </div>
+                            <div class="arrow"> <i class="fa fa-caret-down"></i> </div>
+                        </a>
+                        <ul class="accordion">
+                            <li>
+                                <a href="#"><i class="fa fa-circle-o"></i> Debit Card List </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-circle-o"></i> Member's KYC </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-circle-o"></i> Card History </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li onclick="changeState(9)">
+                        <a href="admin-profile.html">
+                            <div class="icon"> <i class="fa fa-user-circle-o"></i> </div>
+                            <div class="title"> Profile </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="member-page">
+                <div class="heading">
+                    <h1> Virtual UPI IDs </h1>
+                    <button type="submit"> <i class="fa fa-plus"></i> </button>
+                </div>
+                <div class="content-div member member_search_div">
+                    <h2> Search Member </h2>
+                    <form id="member_search" method="get">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="va_id"> VA ID :</label>
+                                <input class="form-control" placeholder="Search VA ID" autocomplete="off" type="search" name="" id="va_id">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="upi_id"> UPI ID :</label>
+                                <input class="form-control" placeholder="Search UPI ID" autocomplete="off" type="search" name="" id="upi_id">
+                            </div>
+                        </div>
+                        <div class="text-center" style="margin-top: 10px;">
+                          <button type="submit" class="btn"><i class="fa fa-search"></i> Search </button>
+                          <button type="reset" class="btn clearForm"> Clear Form </button>
+                        </div>
+                  </form>
+                </div>
+                <div class="content-div member memberList">
+                    <h2> Member List </h2>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-header">
+                            <thead>
+                                <tr>
+                                <th>VA ID</th>
+                                <th>BRANCH</th>
+                                <th>MEMBER NO</th>
+                                <th>MEMBER NAME</th>
+                                <th>ACCOUNT</th>
+                                <th class="text-right">UPI ID</th>
+                                <th class="text-right">ACTIVE</th>
+                                <th class="text-right">SHOW / PRINT</th>
+                                <th class="text-right">ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="">5sb20163</a></td>
+                                    <td>MAIN BRANCH</td>
+                                    <td><a title="View" href="">M20320</a></td>
+                                    <td>SONAKSHI</td>
+                                    <td>Saving - <a href="">6999417220163</a></td>
+                                    <td class="text-right">cfupi.725sb20163@icici</td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center">
+                                        <a class="btn btn-default" title="View" href="#">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">5sb20234</a></td>
+                                    <td>MAIN BRANCH</td>
+                                    <td><a title="View" href="">M20393</a></td>
+                                    <td>SIDDHI</td>
+                                    <td>Saving - <a href="">6999417220234</a></td>
+                                    <td class="text-right">cfupi.725sb20234@icici</td>
+                                    <td class="text-center"><span class="label label-danger">No</span></td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center">
+                                        <a class="btn btn-default" title="View" href="#">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">5sb20166</a></td>
+                                    <td>MAIN BRANCH</td>
+                                    <td><a title="View" href="">M20323</a></td>
+                                    <td>RHAMAT</td>
+                                    <td>Saving - <a href="">6999417220166</a></td>
+                                    <td class="text-right">cfupi.725sb20166@icici</td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center"><span class="label label-danger">No</span></td>
+                                    <td class="text-center">
+                                        <a class="btn btn-default" title="View" href="#">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">5sb20167</a></td>
+                                    <td>MAIN BRANCH</td>
+                                    <td><a title="View" href="">M20319</a></td>
+                                    <td>DHRUV BAJPAI</td>
+                                    <td>Saving - <a href="">6999417220167</a></td>
+                                    <td class="text-right">cfupi.725sb20167@icici</td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center">
+                                        <a class="btn btn-default" title="View" href="#">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">5sb20169</a></td>
+                                    <td>MAIN BRANCH</td>
+                                    <td><a title="View" href="">M20325</a></td>
+                                    <td>VISHAL KUMAR</td>
+                                    <td>Saving - <a href="">6999417220169</a></td>
+                                    <td class="text-right">cfupi.725sb20169@icici</td>
+                                    <td class="text-center"><span class="label label-danger">No</span></td>
+                                    <td class="text-center"><span class="label label-danger">No</span></td>
+                                    <td class="text-center">
+                                        <a class="btn btn-default" title="View" href="#">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">5sb20170</a></td>
+                                    <td>MAIN BRANCH</td>
+                                    <td><a title="View" href="">M20328</a></td>
+                                    <td>MOSIM KHAN</td>
+                                    <td>Saving - <a href="">6999417220170</a></td>
+                                    <td class="text-right">cfupi.725sb20170@icici</td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center"><span class="label label-success">Yes</span></td>
+                                    <td class="text-center">
+                                        <a class="btn btn-default" title="View" href="#">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                              </tr>
+                          </tbody>
+                        </table>
+                          <div class="table-footer">
+                              <div class="pagination">
+                                  <a href="" class="active"> <span> 1 </span> </a>
+                                  <a href=""> <span> 2 </span> </a>
+                                  <a href=""> <span> Next <i class="fa fa-angle-right"></i> </span> </a>
+                                  <a href=""> <span> Last <i class="fa fa-angle-double-right"></i> </span> </a>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+            </div>
+            <div class="foot" style="margin-top: 25px;">
+                <div class="copy">
+                    <p> Copyright © 2018 - 21. All rights reserved. </p>
+                </div>
+                <div class="images">
+                    <img src="./images/security.png" alt="Security Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main Content End -->
+
+	<!-- Scroll Button -->
+	<div class="scrolltop float-right">
+        <i class="fa fa-chevron-up" onclick="goToTop()" id="myBtn"></i>  
+    </div>
+
+    <script src="./js/main.js"></script>
+    
+</body>
+</html>
